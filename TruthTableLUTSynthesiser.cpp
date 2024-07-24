@@ -73,8 +73,8 @@ std::vector<std::pair<std::string, std::string>> read_truth_table(const std::str
         unsigned int value;
         ss >> value;
 
-        std::string input_pattern = std::bitset<12>(i).to_string().substr(12 - n_inputs);
-        std::string output_pattern = std::bitset<4>(value).to_string().substr(4 - n_outputs);
+        std::string input_pattern = std::bitset<32>(i).to_string().substr(32 - n_inputs); // Use 32 to accommodate larger input widths
+        std::string output_pattern = std::bitset<32>(value).to_string().substr(32 - n_outputs); // Use 32 to accommodate larger output widths
 
         truth_table.emplace_back(input_pattern, output_pattern);
         i++;
@@ -96,18 +96,18 @@ std::vector<std::string> read_neuron_inputs(const std::string& filename) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 5) {
-        std::cerr << "Usage: " << argv[0] << " <truth_table_file> <inputs_file> <rarity_threshold> <verilog_filename>\n";
+    if (argc != 7) {
+        std::cerr << "Usage: " << argv[0] << " <truth_table_file> <inputs_file> <rarity_threshold> <verilog_filename> <n_inputs> <n_outputs>\n";
         return 1;
     }
 
-    int n_inputs = 12;
-    int n_outputs = 4;
     std::string truth_table_file = argv[1];
     std::string inputs_file = argv[2];
     int rarity = std::stoi(argv[3]);
     std::string verilog_filename = argv[4];
     verilog_filename += ".v";
+    int n_inputs = std::stoi(argv[5]);
+    int n_outputs = std::stoi(argv[6]);
 
     auto truth_table = read_truth_table(truth_table_file, n_inputs, n_outputs);
     auto inputs = read_neuron_inputs(inputs_file);

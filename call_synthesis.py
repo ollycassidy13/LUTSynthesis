@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-def run_synthesiser(range_limit, layer_start_index):
+def run_synthesiser(range_limit, layer_start_index, n_inputs, n_outputs):
     # Define the path to the directory with the hex LUT values
     results_dir = os.path.join(os.path.dirname(__file__), 'verilog')
 
@@ -16,7 +16,15 @@ def run_synthesiser(range_limit, layer_start_index):
         try:
             # Run the executable and capture the output
             result = subprocess.run(
-                [executable_base_path, truth_table_file, neuron_input_file, rarity_threshold, verilog_filename],
+                [
+                    executable_base_path, 
+                    truth_table_file, 
+                    neuron_input_file, 
+                    rarity_threshold, 
+                    verilog_filename,
+                    str(n_inputs), 
+                    str(n_outputs)
+                ],
                 check=True,
                 universal_newlines=True,
                 stdout=subprocess.PIPE,
@@ -38,5 +46,4 @@ def run_synthesiser(range_limit, layer_start_index):
             print("Executable not found. Please check the path.")
 
 # Function calls
-run_synthesiser(32, 0)
-
+run_synthesiser(32, 0, 12, 4)  # Example: layer 0, 32 neurons, 12 input bits, 4 output bits

@@ -16,7 +16,7 @@ g++ -o TruthTableLUTSynthesiser.exe TruthTableLUTSynthesiser.cpp
 
 To run the program, use the following command:
 ```
-./TruthTableLUTSynthesiser.exe <truth_table_file> <inputs_file> <rarity_threshold> <verilog_filename>
+./TruthTableLUTSynthesiser.exe <truth_table_file> <inputs_file> <rarity_threshold> <verilog_filename> <n_inputs> <n_outputs>
 ```
 
 
@@ -26,13 +26,15 @@ To run the program, use the following command:
 - `<inputs_file>`: The file containing the specified inputs.
 - `<rarity_threshold>`: The rarity threshold for filtering inputs. This should be an integer.
 - `<verilog_filename>`: The name of the output Verilog file (without the .v extension).
+- `<n_inputs>`: The input bitwidth. This should be an integer.
+- `<n_outputs>`: The output bitwidth. This should be an integer.
 
 ### Example
 ```
-./TruthTableLUTSynthesizer truth_table.txt inputs.txt 5 output_file
+./TruthTableLUTSynthesizer truth_table.txt inputs.txt 5 output_file 12 4
 ```
 
-This command will read the truth table from `truth_table.txt`, the specified inputs from `inputs.txt`, use a rarity threshold of 5, and generate a Verilog file named `output_file.v`.
+This command will read the truth table from `truth_table.txt`, the specified inputs from `inputs.txt`, use a rarity threshold of 5, generate a Verilog file named `output_file.v`, use an input bitwidth of 12 and an output bitwidth of 4.
 
 ### Directory Structure
 
