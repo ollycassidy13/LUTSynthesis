@@ -11,7 +11,7 @@ def run_synthesiser(range_limit, layer_start_index, n_inputs, n_outputs):
         truth_table_file = os.path.join(results_dir, f'layer{layer_start_index}_N{x}_hex.txt')
         neuron_input_file = os.path.join(results_dir, f'layer{layer_start_index}_N{x}_input.txt')
         rarity_threshold = '2'  # Set the desired rarity threshold
-        verilog_filename = f'layer{layer_start_index}_N{x}_output'
+        verilog_filename = f'layer{layer_start_index}_N{x}'
 
         try:
             # Run the executable and capture the output
