@@ -31,7 +31,7 @@ To run the program, use the following command:
 
 ### Example
 ```
-./TruthTableLUTSynthesizer truth_table.txt inputs.txt 5 output_file 12 4
+./TruthTableLUTSynthesiser.exe truth_table.txt inputs.txt 5 output_file 12 4
 ```
 
 This command will read the truth table from `truth_table.txt`, the specified inputs from `inputs.txt`, use a rarity threshold of 5, generate a Verilog file named `output_file.v`, use an input bitwidth of 12 and an output bitwidth of 4.
