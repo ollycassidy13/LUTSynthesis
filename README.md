@@ -39,8 +39,8 @@ This command will read the truth table from `truth_table.txt`, the specified inp
 ### Directory Structure
 
 .<br>
-├── TruthTableLUTSynthesizer.cpp<br>
-├── TruthTableLUTSynthesizer.exe<br>
+├── TruthTableLUTSynthesiser.cpp<br>
+├── TruthTableLUTSynthesiser.exe<br>
 ├── truth_table.txt<br>
 ├── inputs.txt<br>
 └── output_file.v<br>
